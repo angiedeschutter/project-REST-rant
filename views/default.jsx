@@ -1,6 +1,5 @@
 const React = require('react')
 
-//stub function
 function Def (html) {
     return (
         <html>
