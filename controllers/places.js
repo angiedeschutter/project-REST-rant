@@ -14,9 +14,14 @@ let places = [{
     pic: '/images/zachariah-hagy-MCKrW7fB7Pw-unsplash.jpg'
   }]
 
+router.get('/new', (req,res)=>{
+    res.render('places/new')
+})
+
 router.get('/', (req,res)=>{
     res.render('places/index', {places})
 })
- 
+
+
 
 module.exports=router
