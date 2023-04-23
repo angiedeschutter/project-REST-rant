@@ -22,6 +22,7 @@ function new_form () {
                         <div className="dropdown">
                         <label htmlFor="state">State</label>
                             <select name="state" id="state" className="form-control">
+                                <option value="USA">USA</option>
                                 <option value="AL">AL</option>
                                 <option value="AK">AK</option>
                                 <option value="AZ">AZ</option>
@@ -80,7 +81,7 @@ function new_form () {
                             <label htmlFor="cuisines">Cuisines</label>
                             <input className="form-control" id="cuisines" name="cuisines" required />
                         </div>
-                        <input className="btn btn-primary" type="submit" value="Add Place" />
+                        <input className="btn btn-success" type="submit" value="Add Place" />
                         </form>
                 </main>
             </Def>

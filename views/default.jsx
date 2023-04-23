@@ -9,20 +9,23 @@ function Def (html) {
                 <link rel='stylesheet' href="/css/style.css"></link>
             </head>
             <body>
-                <nav>
+                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <div className="container-fluid">
                     <ul>
                         <li>
-                            <a href="/">Home</a>
+                            <a href="/"><i className="fa-solid fa-house"></i> Home</a>
                         </li>
                         <li>
-                            <a href="/places">Places</a>
+                            <a href="/places" ><i className="fa-solid fa-utensils"></i> Places</a>
                         </li>
                         <li>
-                            <a href="/places/new">Add Place</a>
+                            <a href="/places/new"><i className="fa-solid fa-plus"></i> Add Place</a>
                         </li>
                     </ul>
+                    </div>
                 </nav>
                 {html.children}
+                <script src="https://kit.fontawesome.com/9102e56990.js" crossOrigin="anonymous"></script>
             </body>
         </html>
     )
