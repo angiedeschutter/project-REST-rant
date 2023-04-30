@@ -5,10 +5,10 @@ function show(data) {
   return (
     <Def>
       <main>
-        
           <div className="row g-0">
             <div className="col-md-4">
               <img src={data.place.pic} className="img-fluid rounded-start"/>
+              <p className="card-text">Located in {data.place.city}, {data.place.state}</p>
             </div>
             <div className="col-md-8">
               <div className="card-body">
@@ -16,7 +16,9 @@ function show(data) {
                 <h4 className="card-text">Rating</h4>
                 <p className="card-text">Not Rated</p>
                 <h4 className="card-text">Description</h4>
-                <p className="card-text">Located in {data.place.city}, {data.place.state}</p>
+                <h5 className="card-text">
+                  {data.place.showEstablished()}
+                </h5>
                 <h4 className="card-text">Comments</h4>
                 <p className="card-text"><small className="text-body-secondary">No Comments</small></p>
               </div>
