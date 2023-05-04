@@ -55,7 +55,7 @@ router.get('/:id', (req, res) => {
 })
 
 //put
-router.post('/:id', (req, res) => {
+router.post('/:id/comment', (req, res) => {
   console.log(req.body)
   db.Place.findById(req.params.id)
   .then(place => {
