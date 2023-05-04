@@ -8,7 +8,7 @@ function show(data) {
     </h3>
   )
   let rating = (
-    <h3 className="inactive">
+    <h3 className='inactive'>
       Not yet rated
     </h3>
   )
@@ -16,22 +16,32 @@ function show(data) {
     let sumRatings = data.place.comments.reduce((tot, c) => {
       return tot + c.stars
     }, 0)
-    let averageRating = sumRatings / data.place.comments.length
+    let averageRating = Math.round(sumRatings / data.place.comments.length)
+    let stars = ''
+    for (let i = 0; i < averageRating; i++) {
+      stars += '*'
+    }
     rating = (
       <h3>
-        {Math.round(averageRating)} stars
+        {stars} stars
       </h3>
     )
+  }
   if (data.place.comments.length) {
     comments = data.place.comments.map(c => {
       return (
         <div className="border">
-          <h2 className="rant">{c.rant ? 'Rant! ðŸ˜¡' : 'Rave! ðŸ˜»'}</h2>
+          <h2 className="rant">{c.rant ? 'Rant! =(' : 'Rave! =)'}</h2>
           <h4>{c.content}</h4>
           <h3>
             <stong>- {c.author}</stong>
           </h3>
           <h4>Rating: {c.stars}</h4>
+          <form method="POST" action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`}>
+          <button type="submit" className="btn btn-danger btn-sm" >
+            <i className="fa-regular fa-trash-can"></i> Delete Comment
+        </button>
+        </form>
         </div>
       )
     })
@@ -58,10 +68,10 @@ function show(data) {
           </div>     
       </main>
       <span className="btn-toolbar">
-        <a href={`/places/${data.id}/edit`} className="btn btn-warning btn-sm">
+        <a href={`/places/${data.place.id}/edit`} className="btn btn-warning btn-sm">
       <i className="fa-solid fa-pen-to-square"></i>  Edit
       </a>
-      <form action={`/places/${data.id}?_method=DELETE`} method="POST" >
+      <form action={`/places/${data.place.id}?_method=DELETE`} method="POST" >
         <button type="submit" className="btn btn-danger btn-sm" >
         <i className="fa-regular fa-trash-can"></i> Delete
         </button>
@@ -114,6 +124,6 @@ function show(data) {
     </Def>
   )
 }
-}
 
 module.exports = show
+
